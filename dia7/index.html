@@ -1,0 +1,43 @@
+<p><strong>Welcome to the Foris Mini Challenge</strong></p>
+<p>To start this challenge you must send a <code>POST</code> request to the <a>http://mini-challenge.foris.ai/login</a>
+    with body
+    <code>{&quot;username&quot;: &quot;foris_challenge&quot;, &quot;password&quot;: &quot;ForisChallenge&quot;}</code>.
+</p>
+<p>Then follow the instructions.</p>
+<p>Good luck!</p>
+<p>Here are the valid uris with their allowed methods.</p>
+<ul>
+    <li>/login:<ul>
+            <li>Allowed methods: <code>POST</code>.</li>
+            <li>Requires authentication: No.</li>
+            <li>Required body:
+                <code>{&quot;username&quot;: &quot;foris_challenge&quot;, &quot;password&quot;: &quot;ForisChallenge&quot;}</code>.
+            </li>
+        </ul>
+    </li>
+    <li>/challenge:<ul>
+            <li>Allowed methods: <code>GET</code>.</li>
+            <li>Requires authentication: Yes.</li>
+        </ul>
+    </li>
+    <li>/dumps/{dump_type}:<ul>
+            <li>Allowed methods: <code>GET</code>.</li>
+            <li>Requires authentication: Yes.</li>
+        </ul>
+    </li>
+    <li>/validate: <ul>
+            <li>This is a method to validate your answer. Be careful you can only submit this request once every hour.
+            </li>
+            <li>Allowed methods: <code>POST</code>.</li>
+            <li>Requires authentication: Yes.</li>
+            <li>Required_body:
+                <code>{&quot;number_of_groups&quot;: NUMBER_OF_GROUPS, &quot;answer&quot;: YOUR_ANSWER}</code>.<ul>
+                    <li><code>NUMBER_OF_GROUPS</code>: Is the number of groups present in the table <code>group</code>
+                        of the given dump. By giving this you prove that you successfully inspect your database.</li>
+                    <li><code>YOUR_ANSWER</code>: Is the answer of the question asked in the /challenge uri.</li>
+                </ul>
+            </li>
+            <li>Response: Can be correct answer or incorrect answer.</li>
+        </ul>
+    </li>
+</ul>
